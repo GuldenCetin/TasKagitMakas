@@ -1,0 +1,124 @@
+
+package Nesneler;
+
+
+public class OzelKagit extends Kagit{
+    private double kalinlik;
+     private double makasMukavemet;
+    private double kagitMukavemet;
+    private double tasMukavemet;
+    private double ustaMakasMukavemet;
+    private double ozelKagitMukavemet;
+      private double agirTasMukavemet;
+    public OzelKagit(double kalinlik) {
+        this.kalinlik = kalinlik;
+    }
+   public OzelKagit(){
+       
+   }
+    public OzelKagit(double kalinlik, int nufuz, double dayaniklilik, int seviyePuani, String name) {
+        super(nufuz, dayaniklilik, seviyePuani, name);
+        this.kalinlik = kalinlik;
+    }
+
+    @Override
+    public void nesnePuaniGoster(double a) {
+         System.out.println(" Ozel Kagit son dayaniklilik degeri "+ a);
+       // super.nesnePuaniGoster(a); 
+    }
+    @Override
+    public double durumGuncelle(double a ) {
+        double durum=getDayaniklilik()-a;
+        setDayaniklilik((getDayaniklilik()-a));
+        return durum ;
+    }
+    @Override
+    public double etkiHesapla(Object a) {
+          if(a instanceof Kagit)
+        {
+            setKagitMukavemet(0);
+            return  getKagitMukavemet();
+        }
+
+         if(a instanceof Tas)
+        {
+            setTasMukavemet(10);
+            return getTasMukavemet();
+        }
+
+         if(a instanceof Makas)
+        {
+            setMakasMukavemet(2.5);
+            return getMakasMukavemet();
+        }
+         
+              if(a instanceof UstaMakas)
+        {
+            setUstaMakasMukavemet(1.25);
+            return getUstaMakasMukavemet();
+        }
+
+           if(a instanceof AgirTas)
+        {
+            setAgirTasMukavemet(5);
+            return getAgirTasMukavemet();
+        }
+  
+          if(a instanceof OzelKagit)
+        {
+            setOzelKagitMukavemet(0);
+            return  getOzelKagitMukavemet();
+        }
+        return super.etkiHesapla(a); 
+    }
+
+    public double getKagitMukavemet() {
+        return kagitMukavemet;
+    }
+
+    public void setKagitMukavemet(double kagitMukavemet) {
+        this.kagitMukavemet = kagitMukavemet;
+    }
+
+    public double getTasMukavemet() {
+        return tasMukavemet;
+    }
+
+    public void setTasMukavemet(double tasMukavemet) {
+        this.tasMukavemet = tasMukavemet;
+    }
+
+    public double getUstaMakasMukavemet() {
+        return ustaMakasMukavemet;
+    }
+
+    public void setUstaMakasMukavemet(double ustaMakasMukavemet) {
+        this.ustaMakasMukavemet = ustaMakasMukavemet;
+    }
+
+    public double getOzelKagitMukavemet() {
+        return ozelKagitMukavemet;
+    }
+
+    public void setOzelKagitMukavemet(double ozelKagitMukavemet) {
+        this.ozelKagitMukavemet = ozelKagitMukavemet;
+    }
+
+    public double getAgirTasMukavemet() {
+        return agirTasMukavemet;
+    }
+
+    public void setAgirTasMukavemet(double agirTasMukavemet) {
+        this.agirTasMukavemet = agirTasMukavemet;
+    }
+
+  
+
+    public double getKalinlik() {
+        return kalinlik;
+    }
+
+    public void setKalinlik(double kalinlik) {
+        this.kalinlik = kalinlik;
+    }
+}
